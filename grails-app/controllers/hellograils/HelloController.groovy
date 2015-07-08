@@ -3,6 +3,7 @@ package hellograils
 import entity.Person
 import javax.servlet.http.HttpServletRequest
 import yoyoyo.NonDomainClass
+import com.iasia.config.iasiaprotocol.iAsiaProtocolConfig
 
 class HelloController {
 
@@ -10,12 +11,15 @@ class HelloController {
 		// render "hello world!"
 		// makes a new prototype-scoped bean
 		def person = new Person(firstName: 'Ke', lastName: 'Tone')
-		println "lalala" + com.iasia.config.iasiaprotocol.iAsiaProtocolConfig.EXCHANGE_NAME_HK_STOCK
 		// request attributes for the gsp page. 
 		[person: person]
 		
 	}
-	
+
+	def testDependency() {
+		render "lalala " + iAsiaProtocolConfig.EXCHANGE_NAME_HK_STOCK
+	}
+		
 	def hi() {
 		
 		// Over 30 methods are mixed into controller classes with AST transformations
